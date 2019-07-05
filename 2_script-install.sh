@@ -25,7 +25,6 @@ touch index.txt
 echo 1000 > serial
 mv /root/configuration_file_Root_CA /root/ca/openssl.cnf
 
-
 mkdir /root/ca/intermediate
 cd $INTERCAPATH
 mkdir certs crl csr newcerts private
