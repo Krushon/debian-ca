@@ -78,12 +78,12 @@ commonName                      = Common Name
 emailAddress                    = Email Address
 
 # Optionally, specify some defaults.
-countryName_default             = GB
-stateOrProvinceName_default     = England
-localityName_default            =
-0.organizationName_default      = Alice Ltd
-organizationalUnitName_default  =
-emailAddress_default            =
+countryName_default             = RU
+stateOrProvinceName_default     = Russia
+localityName_default            = Moscow
+organizationName_default        = debian-ca
+#organizationalUnitName_default  =
+#emailAddress_default            =
 
 [ v3_ca ]
 # Extensions for a typical CA (`man x509v3_config`).
