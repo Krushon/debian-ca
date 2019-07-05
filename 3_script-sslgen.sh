@@ -37,6 +37,7 @@ if [[ $check = "/root/ca/intermediate.cert.pem: OK" ]]; then
 fi
 
 # Создание файла цепочки сертификатов
+cd $ROOTCAPATH
 /bin/cat intermediate/certs/intermediate.cert.pem certs/ca.cert.pem > intermediate/certs/ca-chain.cert.pem
 /bin/chmod 444 intermediate/certs/ca-chain.cert.pem
 
