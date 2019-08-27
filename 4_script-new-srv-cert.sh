@@ -34,7 +34,11 @@ fi
 
 # Подготовка комплекта сертификатов и ключа для копирования на web-сервер
 cd $ROOTCAPATH
-/bin/tar -cvf $webservername.tar /root/ca/intermediate/certs/ca-chain.cert.pem /root/ca/intermediate/certs/$webservername.cert.pem /root/ca/intermediate/private/$webservername.key.pem
+/bin/cp -p /root/ca/intermediate/certs/ca-chain.cert.pem /root
+/bin/cp -p /root/ca/intermediate/certs/$webservername.cert.pem /root
+/bin/cp -p /root/ca/intermediate/private/$webservername.key.pem /root
+/bin/tar -cpf $webservername.tar /root/*.pem
+/bin/rm /root/*.pem
 echo
 echo "Сертификаты для $webservername подготовлены и упакованы в архив /root/ca/$webservername.tar."
 echo
