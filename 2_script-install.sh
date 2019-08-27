@@ -4,11 +4,11 @@ printf "\033c"
 
 # Устанавливаем ПО
 apt-get update
-apt-get install mc ntpdate ntp net-tools -y
+apt-get install mc ntp -y
 apt-get autoclean && apt-get clean
 
 # вместо pool.ntp.org можно указать свой сервер точного времени
-/etc/init.d/ntp stop && ntpdate pool.ntp.org && /etc/init.d/ntp start
+/etc/init.d/ntp stop && sntp pool.ntp.org && /etc/init.d/ntp start
 
 # Изменяем временную зону
 ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime
@@ -17,7 +17,7 @@ ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime
 ROOTCAPATH=/root/ca
 INTERCAPATH=/root/ca/intermediate
 
-mkdir /root/ca
+mkdir $ROOTCAPATH
 cd $ROOTCAPATH
 mkdir certs crl newcerts private
 chmod 700 private
@@ -25,7 +25,7 @@ touch index.txt
 echo 1000 > serial
 mv /root/configuration_file_Root_CA /root/ca/openssl.cnf
 
-mkdir /root/ca/intermediate
+mkdir $INTERCAPATH
 cd $INTERCAPATH
 mkdir certs crl csr newcerts private
 chmod 700 private
